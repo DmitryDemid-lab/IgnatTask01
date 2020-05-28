@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 8%, rgba(35,180,151,1) 52%, rgba(0,212,255,1) 100%);
+    font: 400 76px/1.17 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.MyFullName {
+    width: fit-content
+}
+
+.text {
+    width: 648px;
+    height: 136px;
+    background-color: #FFEBCD;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: #6b635b;
+}
