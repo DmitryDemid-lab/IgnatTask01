@@ -4,13 +4,13 @@ import MyInitialsOutput from "./Components/MyInitialsOutput/MyInitialsOutput";
 import Post from "./Components/TelegramMessage/TelegramMessage";
 
 function App() {
-  return (
-    <div className="App">
-      <MyInitialsOutput/>
-      <Post/>
-    </div>
+    return (
+        <div className="App">
+            <MyInitialsOutput/>
+            <Post/>
+        </div>
 
-  );
+    );
 }
 
 export default App;

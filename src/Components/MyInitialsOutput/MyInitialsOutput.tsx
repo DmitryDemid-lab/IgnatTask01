@@ -5,7 +5,7 @@ const MyInitialsOutput = () => {
     return (
         <div className={s.body}>
             <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-367-456319.png" alt="avatar"/>
-           <MyFullName/>
+            <MyFullName/>
         </div>
     )
 };

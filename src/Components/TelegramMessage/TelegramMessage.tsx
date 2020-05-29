@@ -24,7 +24,7 @@ type MessagePropsTypes = {
 const Message = (props: MessagePropsTypes) => {
     let date = new Date;
     let hours = date.toLocaleTimeString();
-    return(
+    return (
         <div className={s.message}>
             <div className={s.nameOfWriter}>
                 {props.name}
