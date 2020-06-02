@@ -1,7 +1,7 @@
 .post {
     margin: 100px auto;
-    width: 300px;
-    height: 150px;
+    width: 600px;
+    height: 600px;
     border: 3px solid black;
     font: 400 16px/1.17 'Roboto', sans-serif;
     display: flex;
@@ -20,13 +20,18 @@
 .message {
     position: relative;
     margin: 0 10px;
-    width: inherit;
+    width: 190px;
     height: fit-content;
     border: none;
     background-color: #66bffffa;
     border-radius: 15px;
+    padding: 10px 15px;
     text-align: start;
-    padding: 7px 15px;
+}
+
+.messageBlock {
+    display: flex;
+    align-items: flex-end;
 }
 
 .message::after, .message::before {
@@ -59,6 +64,8 @@
 .message .textMessage {
     color: #454443;
     margin: 3px 0;
+    word-wrap:break-word;
+    padding: 5px 0;
 }
 
 .message .sentTime {
