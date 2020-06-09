@@ -1,14 +1,29 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import s from './HelloName.module.css';
+import {v1} from "uuid";
 
+type CorrectNameType = {
+    id: string,
+    name: string
+};
 
 function HelloName() {
 
     let [name, setName] = useState("");
 
+    let [correctNames, setCorrectName] = useState<Array<CorrectNameType>>([]);
+
+    function addName (name:string) {
+        let newName = {id: v1(), name: name};
+        setCorrectName([newName, ...correctNames])
+    };
+
+   let count = correctNames.length;
+
     const helloFunc = () => {
         if (name !== ""){
             alert("Hello, " + name);
+            addName(name);
             setName("");
 
         } else {
@@ -34,7 +49,9 @@ function HelloName() {
                    onKeyPress={onKeyPressHandler}
             />
             <button onClick={helloFunc}>+</button>
-            <span>sss</span>
+            <span>
+               {count}
+            </span>
         </div>
     );
 };
