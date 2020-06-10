@@ -1,5 +1,55 @@
 .HelloName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin: 150px auto;
     width: 600px;
-    height: 600px;
-    margin: 0 auto;
+    padding: 50px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+    background-blend-mode: multiply,multiply;
+}
+
+.NameInput {
+    padding: 15px 10px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 10px -1px;
+    margin: 0 10px;
+    outline: none;
+    font-size: 20px;
+    color: #8a8a8a;
+}
+
+.addBtn {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    padding: 17px;
+    margin: 0 10px;
+    background-color: #b5b5b5;
+    color: #3b3b3b;
+    box-shadow:
+            inset rgba(0,0,0,.6) 0 -3px 8px,
+            inset rgba(252,255,255,.7) 0 3px 8px,
+            rgba(0,0,0,.8) 0 3px 8px -3px;
+}
+
+.addBtn:hover {
+    box-shadow: 0 3px 3px #575555 inset;
+}
+
+.count{
+    margin: 0 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #7f7f7f;
+    box-shadow:
+            inset rgba(0,0,0,.6) 0 -3px 8px,
+            inset rgba(252,255,255,.7) 0 3px 8px,
+            rgba(0,0,0,.8) 0 3px 8px -3px;
+    color: #ccc;
 }
