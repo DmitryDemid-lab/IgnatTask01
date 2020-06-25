@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import MyInitialsOutput from "./Components/MyInitialsOutput/MyInitialsOutput";
 import Post from "./Components/TelegramMessage/TelegramMessage";
