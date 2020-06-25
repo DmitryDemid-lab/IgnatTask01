@@ -1,10 +1,14 @@
 import React, {ButtonHTMLAttributes, DetailedHTMLProps,} from 'react';
+import s from './ButtonNya.module.css';
 
 export type ButtonNyaPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
-const ButtonNya = ({...props}) => {
+const ButtonNya: React.FC<ButtonNyaPropsType> = ({...props}) => {
     return (
-        <button {...props}/>
+        <button
+            {...props}
+            className={s.ButtonNya}
+        />
     )
 };
 
