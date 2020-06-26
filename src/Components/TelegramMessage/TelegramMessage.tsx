@@ -13,9 +13,7 @@ const Post = () => {
 };
 
 const Avatar = () => {
-    return (
-        <img className={s.avatarIcon} src="https://avatarfiles.alphacoders.com/855/85557.png" alt="avatar"/>
-    )
+    return  <img className={s.avatarIcon} src="https://avatarfiles.alphacoders.com/855/85557.png" alt="avatar"/>
 };
 
 type MessagePropsTypes = {
@@ -24,7 +22,7 @@ type MessagePropsTypes = {
 }
 
 const Message = (props: MessagePropsTypes) => {
-    let date = new Date;
+    let date = new Date();
     let hours = date.toLocaleTimeString();
     return (
         <div className={s.message}>

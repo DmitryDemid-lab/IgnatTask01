@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import s from './HelloName.module.css';
 import {v1} from "uuid";
 import ButtonNya from "../Input(task4)/ButtonNya/ButtonNya";
