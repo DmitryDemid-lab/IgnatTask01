@@ -24,6 +24,7 @@ const InputNya: React.FC<InputNyaPropsType> = (
                    type="text"
                    onKeyPress={onKeyPressHandler}
             />
+            <br/>
             <span className={s.errorMessage}>{error}</span>
         </div>
     );

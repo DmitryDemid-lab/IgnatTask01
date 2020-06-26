@@ -1,6 +1,8 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import s from './HelloName.module.css';
 import {v1} from "uuid";
+import ButtonNya from "../Input(task4)/ButtonNya/ButtonNya";
+import InputNya from "../Input(task4)/InputNya/InputNya";
 
 type CorrectNameType = {
     id: string,
@@ -13,6 +15,8 @@ function HelloName() {
 
     let [correctNames, setCorrectName] = useState<Array<CorrectNameType>>([]);
 
+    let [error, setError] = useState<string>("");
+
     function addName(name: string) {
         let newName = {id: v1(), name: name};
         setCorrectName([newName, ...correctNames])
@@ -21,37 +25,31 @@ function HelloName() {
     let count = correctNames.length;
 
     const helloFunc = () => {
-        if (name !== "") {
+        if (name.trim() !== "") {
             alert("Hello, " + name);
             addName(name);
             setName("");
-
         } else {
-            alert("Enter your name");
+           setError("Field is required!")
+            setName("")
         }
     };
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value);
-    }
-
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.charCode === 13) {
-            helloFunc();
-        }
+        setError("");
     }
 
     return (
         <div className={s.HelloName}>
-            <input
-                className={s.NameInput}
-                type="text"
+            <InputNya
+                onEnter={helloFunc}
                 placeholder="Enter your name here"
                 value={name}
                 onChange={onChangeHandler}
-                onKeyPress={onKeyPressHandler}
+                error={error}
             />
-            <button className={s.addBtn} onClick={helloFunc}>+</button>
+            <ButtonNya onClick={helloFunc}>+</ButtonNya>
             <span className={s.count}>
                 Names amount:<br/>
                {count}
