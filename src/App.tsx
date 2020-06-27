@@ -3,20 +3,35 @@ import './App.css';
 import PreJunior from "./AppPages/PreJunior/PreJunior";
 import Junior from "./AppPages/Junior/Junior";
 import JuniorPlus from "./AppPages/Junior+/JuniorPlus";
-import NavBar from "./AppPages/NavBar/NavBar";
+import {Route, Switch} from 'react-router-dom';
+import Layout from "./hoc/Layout/Layout";
+import HomeScreens from "./AppPages/HomeScreen/HomeScreen";
 
 
+/*function App() {
+    return (
+        <HashRouter basename='AppPages'>
+            <div className="App">
+                <NavBar/>
+                <main>
+
+                </main>
+            </div>
+        </HashRouter>
+    );
+}*/
 function App() {
     return (
-        <div className="App">
-            <NavBar/>
-            <main>
-                <PreJunior/>
-                <Junior/>
-                <JuniorPlus/>
-            </main>
-        </div>
+        <Layout>
+            <Switch>
+                <Route path='/PreJunior' component={PreJunior}/>
+                <Route path='/Junior' component={Junior}/>
+                <Route path='/JuniorPlus' component={JuniorPlus}/>
+                <Route path='/' component={HomeScreens}/>
+            </Switch>
+        </Layout>
     );
 }
 
 export default App;
+
