@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './PreJunior.module.css'
-import MyInitialsOutput from "../../Components/MyInitialsOutput/MyInitialsOutput";
 import MyAffairs from "../../Components/Affairs/MyAffairs";
 import Post from "../../Components/TelegramMessage/TelegramMessage";
 import HelloName from "../../Components/HelloName/HelloName";
@@ -16,9 +15,8 @@ function PreJunior() {
     return (
         <div className={s.PreJunior}>
             <h1>The result of my homework № 1-4</h1>
-            <MyInitialsOutput/>
-            <MyAffairs/>
             <Post/>
+            <MyAffairs/>
             <HelloName/>
             <InputNya onEnter={onEnter}/>
             <ButtonNya>Hi</ButtonNya>
