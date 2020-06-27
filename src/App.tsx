@@ -8,18 +8,6 @@ import Layout from "./hoc/Layout/Layout";
 import HomeScreens from "./AppPages/HomeScreen/HomeScreen";
 
 
-/*function App() {
-    return (
-        <HashRouter basename='AppPages'>
-            <div className="App">
-                <NavBar/>
-                <main>
-
-                </main>
-            </div>
-        </HashRouter>
-    );
-}*/
 function App() {
     return (
         <Layout>
