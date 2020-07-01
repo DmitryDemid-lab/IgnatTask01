@@ -43,6 +43,7 @@ function EditableSpan(props: EditableSpanPropsType) {
 
     const onGetTitleHandler = () =>{
         const state: StateType = restoreState<StateType>("test", {x: "", y: 0});
+        alert(Object.values(state).join(' '))
         console.log(state)
     }
 
