@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Junior.module.css'
 import EditableSpan from "../../Common/EditableSpan/EditableSpan";
 import ButtonNya from "../../Components/Input(task4)/ButtonNya/ButtonNya";
+import Select from "../../Common/Select/Select";
 
 type StateType = {
     x: string
@@ -36,12 +37,15 @@ function Junior() {
         alert("Wow")
     }
 
+    const optionsArray = ["Minsk", "Moscow", "Kiev"]
+
     return (
         <div className={s.Junior}>
             <h1>Junior</h1>
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
             <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya>
+            <Select optionsArray={optionsArray}/>
         </div>
     )
 };
