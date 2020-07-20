@@ -7,13 +7,13 @@ type OptionsType = {
 }
 
 type RadioType = {
-    options: OptionsType
+    radioGroup: OptionsType
 }
 
 function Radio(props: RadioType) {
     return (
         <div className={s.Radio}>
-            {props.options.title.map((r, i) => <p key={i}><input type="radio" name={props.options.groupName}/>{r}</p>)}
+            {props.radioGroup.title.map((r, i) => <p key={i}><input type="radio" name={props.radioGroup.groupName}/>{r}</p>)}
         </div>
     )
 };

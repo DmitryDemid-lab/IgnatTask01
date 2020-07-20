@@ -40,7 +40,7 @@ function Junior() {
 
     const optionsArray = ["Minsk", "Moscow", "Kiev"]
 
-    const optionsTest = {
+    const radioGroup = {
         groupName: "test",
         title: ["Minsk", "Moscow", "Kiev"]
     }
@@ -48,12 +48,12 @@ function Junior() {
 
     return (
         <div className={s.Junior}>
-            <h1>Junior</h1>
+            <h1>Junior</h1><hr/>
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
-            <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya>
-            <Select optionsArray={optionsArray}/> <br/>
-            <Radio options={optionsTest}/>
+            <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya><hr/>
+            <Select optionsArray={optionsArray}/>
+            <Radio radioGroup={radioGroup}/><hr/>
         </div>
     )
 };
