@@ -3,6 +3,7 @@ import s from './Junior.module.css'
 import EditableSpan from "../../Common/EditableSpan/EditableSpan";
 import ButtonNya from "../../Components/Input(task4)/ButtonNya/ButtonNya";
 import Select from "../../Common/Select/Select";
+import Radio from "../../Common/Radio/Radio";
 
 type StateType = {
     x: string
@@ -10,7 +11,7 @@ type StateType = {
     z: number
 }
 
-export function saveState<T> (key: string, state: T) {
+export function saveState<T>(key: string, state: T) {
     const stateAsString = JSON.stringify(state);
     localStorage.setItem(key, stateAsString)
 }
@@ -27,7 +28,7 @@ function Junior() {
         saveState<StateType>("test", {x: "Hello!", y: "This is task number: ", z: 6});
     }
 
-    const onGetTitleHandler = () =>{
+    const onGetTitleHandler = () => {
         const state: StateType = restoreState<StateType>("test", {x: "", y: "", z: 0});
         alert(Object.values(state).join(' '))
         console.log(state)
@@ -39,13 +40,20 @@ function Junior() {
 
     const optionsArray = ["Minsk", "Moscow", "Kiev"]
 
+    const optionsTest = {
+        groupName: "test",
+        title: ["Minsk", "Moscow", "Kiev"]
+    }
+
+
     return (
         <div className={s.Junior}>
             <h1>Junior</h1>
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
             <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya>
-            <Select optionsArray={optionsArray}/>
+            <Select optionsArray={optionsArray}/> <br/>
+            <Radio options={optionsTest}/>
         </div>
     )
 };
