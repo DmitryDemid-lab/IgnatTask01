@@ -1,4 +1,5 @@
 import React from 'react';
+import s from "./Select.module.css"
 
 type SelectType = {
     optionsArray: Array<string>
@@ -6,7 +7,7 @@ type SelectType = {
 
 function Select(props: SelectType) {
     return (
-        <select>
+        <select className={s.Select}>
             {props.optionsArray.map((op, i) => <option key={i}>{op}</option>)}
         </select>
     )
