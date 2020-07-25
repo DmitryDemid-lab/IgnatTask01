@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Junior.module.css'
 import EditableSpan from "../../Common/EditableSpan/EditableSpan";
 import ButtonNya from "../../Components/Input(task4)/ButtonNya/ButtonNya";
 import Select from "../../Common/Select/Select";
 import Radio from "../../Common/Radio/Radio";
+import {StateType} from "../../reducer/homeWorkReducer";
+import Users from "../../Components/Users/Users";
 
-type StateType = {
+type LocalStateType = {
     x: string
     y: string
     z: number
@@ -25,11 +27,11 @@ export function restoreState<T>(key: string, defaultState: T) {
 function Junior() {
 
     const onSetTitleHandler = () => {
-        saveState<StateType>("test", {x: "Hello!", y: "This is task number: ", z: 6});
+        saveState<LocalStateType>("test", {x: "Hello!", y: "This is task number: ", z: 6});
     }
 
     const onGetTitleHandler = () => {
-        const state: StateType = restoreState<StateType>("test", {x: "", y: "", z: 0});
+        const state: LocalStateType = restoreState<LocalStateType>("test", {x: "", y: "", z: 0});
         alert(Object.values(state).join(' '))
         console.log(state)
     }
@@ -40,11 +42,17 @@ function Junior() {
 
     const optionsArray = ["Minsk", "Moscow", "Kiev"]
 
-    const radioGroup = {
-        groupName: "test",
-        title: ["Minsk", "Moscow", "Kiev"]
-    }
+    const [radioGroup, setRadioGroup] = useState([
+        {title: "Minsk", id: 1, groupName: 'cities'},
+        {title: "Moscow", id: 2, groupName: 'cities'},
+        {title: "Kiev", id: 3, groupName: 'cities'}
+        ])
 
+    const users: Array<StateType> = [
+        {id: '1', name: 'Dmitry', age: 22},
+        {id: '2', name: 'Alex', age: 32},
+        {id: '3', name: 'Max', age: 12}
+    ]
 
     return (
         <div className={s.Junior}>
@@ -52,8 +60,10 @@ function Junior() {
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
             <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya><hr/>
-            <Select optionsArray={optionsArray}/>
-            <Radio radioGroup={radioGroup}/><hr/>
+            <Select optionsArray={optionsArray}/> <br/>
+            <Radio radioGroup={radioGroup}/>
+            <hr/>
+            <Users/>
         </div>
     )
 };
