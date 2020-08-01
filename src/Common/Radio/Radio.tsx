@@ -1,49 +1,34 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useState} from 'react';
 import s from "./Radio.module.css"
 
-type RadioGroupType = {
-    id: number
-    groupName: string
-    title: string
-}
-
 type RadioType = {
-    radioGroup: Array<RadioGroupType>
+    radioGroup: Array<string | number>
+    groupName: string
+    onRadioChangeHandler: (currentItem: string) => void
 }
 
 function Radio(props: RadioType) {
-    const [editMode, setMode] = useState<boolean>(true)
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        alert('want to change')
-        // setTitle(e.currentTarget.value)
+        props.onRadioChangeHandler(e.currentTarget.value)
     }
 
     return (
         <>
             {props.radioGroup.map(r => {
-                   return !editMode
-                        ? <div key={r.id} onDoubleClick={() => {
-                            setMode(true)
-                        }}>
+                    return <div >
+                        <label>
                             <input
                                 type={'radio'}
-                                name={r.groupName}
+                                name={props.groupName}
+                                value={r}
+                                onChange={onChangeHandler}
                             />
-                            <label>{r.title}</label>
-                        </div>
-                        : <input
-                            key={r.id}
-                            type={'text'}
-                            value={r.title}
-                            onBlur={() => {
-                                setMode(false)
-                            }}
-                            autoFocus
-                            onChange={onChangeHandler}
-                />
+                            {r}
+                        </label>
+                    </div>
                 }
-             )}
+            )}
         </>
 
     )

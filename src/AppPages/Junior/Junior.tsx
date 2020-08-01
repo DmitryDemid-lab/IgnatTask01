@@ -41,18 +41,18 @@ function Junior() {
     }
 
     //Params for select test
-    const cities = (["Select city", "Minsk", "Moscow", "Kiev"])
+    const cities = ["Select city", "Minsk", "Moscow", "Kiev"]
     const [selectedValue, setSelectedValue] = useState("Select city")
     const onSelectChangeHandler = (value: string) => {
         setSelectedValue(value)
     }
 
-
-    const [radioGroup, setRadioGroup] = useState([
-        {title: "Minsk", id: 1, groupName: 'cities'},
-        {title: "Moscow", id: 2, groupName: 'cities'},
-        {title: "Kiev", id: 3, groupName: 'cities'}
-        ])
+    //Params for Radio test
+    const radioGroup = ["ManUnited", "Chelsea", "Arsenal", "Liverpool"];
+    const [selectedRadio, setSelectedRadio] = useState("ManUnited")
+    const onRadioChangeHandler = (currentItem: string) => {
+        setSelectedRadio(currentItem)
+    }
 
 
     return (
@@ -61,8 +61,8 @@ function Junior() {
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
             <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya><hr/>
-            <Select optionsArray={cities} value={selectedValue} onSelectChangeHandler={onSelectChangeHandler}/> <br/>
-            <Radio radioGroup={radioGroup}/>
+            <Select optionsArray={cities} value={selectedValue} onSelectChangeHandler={onSelectChangeHandler}/> <br/><br/>
+            <Radio radioGroup={radioGroup} groupName={"football teams"} onRadioChangeHandler={onRadioChangeHandler}/>
             <hr/>
             <Users/>
         </div>
