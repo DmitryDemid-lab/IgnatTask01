@@ -40,7 +40,13 @@ function Junior() {
         alert("Wow")
     }
 
-    const optionsArray = ["Minsk", "Moscow", "Kiev"]
+    //Params for select test
+    const cities = (["Select city", "Minsk", "Moscow", "Kiev"])
+    const [selectedValue, setSelectedValue] = useState("Select city")
+    const onSelectChangeHandler = (value: string) => {
+        setSelectedValue(value)
+    }
+
 
     const [radioGroup, setRadioGroup] = useState([
         {title: "Minsk", id: 1, groupName: 'cities'},
@@ -48,11 +54,6 @@ function Junior() {
         {title: "Kiev", id: 3, groupName: 'cities'}
         ])
 
-    const users: Array<StateType> = [
-        {id: '1', name: 'Dmitry', age: 22},
-        {id: '2', name: 'Alex', age: 32},
-        {id: '3', name: 'Max', age: 12}
-    ]
 
     return (
         <div className={s.Junior}>
@@ -60,7 +61,7 @@ function Junior() {
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
             <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya><hr/>
-            <Select optionsArray={optionsArray}/> <br/>
+            <Select optionsArray={cities} value={selectedValue} onSelectChangeHandler={onSelectChangeHandler}/> <br/>
             <Radio radioGroup={radioGroup}/>
             <hr/>
             <Users/>
