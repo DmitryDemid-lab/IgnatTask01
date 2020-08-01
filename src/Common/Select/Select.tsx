@@ -5,9 +5,9 @@ type SelectType =
     DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
     & DetailedHTMLProps<OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>
     & {
-    optionsArray: Array<string>
-    value: string
-    onSelectChangeHandler: (value: string) => void
+    optionsArray: Array<string | number>
+    value: string | number
+    onSelectChangeHandler: (value: string ) => void
 }
 
 const Select: React.FC<SelectType> = (props: SelectType) => {
