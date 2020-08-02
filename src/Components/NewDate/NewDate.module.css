@@ -1,6 +1,12 @@
 .newDate {
     box-sizing: border-box;
 }
+
+.TimeWithDate {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .time {
     margin: 0 auto 15px auto;
     width: 100px;
@@ -12,7 +18,6 @@
 }
 
 .date {
-    margin: 0 auto;
     width: 100px;
     background-color: rgba(48, 93, 255, 0.36);
     padding: 5px 10px 3px 10px;
