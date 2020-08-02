@@ -4,8 +4,8 @@ import EditableSpan from "../../Common/EditableSpan/EditableSpan";
 import ButtonNya from "../../Components/Input(task4)/ButtonNya/ButtonNya";
 import Select from "../../Common/Select/Select";
 import Radio from "../../Common/Radio/Radio";
-import {StateType} from "../../reducer/homeWorkReducer";
 import Users from "../../Components/Users/Users";
+import NewDate from "../../Components/NewDate/NewDate";
 
 type LocalStateType = {
     x: string
@@ -54,17 +54,21 @@ function Junior() {
         setSelectedRadio(currentItem)
     }
 
-
     return (
         <div className={s.Junior}>
-            <h1>Junior</h1><hr/>
+            <h1>Junior</h1>
+            <hr/>
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
-            <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya><hr/>
-            <Select optionsArray={cities} value={selectedValue} onSelectChangeHandler={onSelectChangeHandler}/> <br/><br/>
+            <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya>
+            <hr/>
+            <Select optionsArray={cities} value={selectedValue} onSelectChangeHandler={onSelectChangeHandler}/>
+            <br/><br/>
             <Radio radioGroup={radioGroup} groupName={"football teams"} onRadioChangeHandler={onRadioChangeHandler}/>
             <hr/>
             <Users/>
+            <hr/>
+            <NewDate/>
         </div>
     )
 };
