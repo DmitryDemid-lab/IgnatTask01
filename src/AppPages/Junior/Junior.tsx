@@ -6,6 +6,10 @@ import Select from "../../Common/Select/Select";
 import Radio from "../../Common/Radio/Radio";
 import Users from "../../Components/Users/Users";
 import NewDate from "../../Components/NewDate/NewDate";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../redux/store";
+import {loadStateType, setLoading} from "../../redux/reducers/loadStateReducer/loadStateReducer";
+import Preloader from "../../Common/preloader/Preloader";
 
 type LocalStateType = {
     x: string
@@ -25,6 +29,16 @@ export function restoreState<T>(key: string, defaultState: T) {
 }
 
 function Junior() {
+
+    const load = useSelector<AppRootStateType, loadStateType>(state => state.loadState)
+    const dispatch = useDispatch()
+
+    function changeLoad() {
+        dispatch(setLoading(true))
+       let stop = () => dispatch(setLoading(false))
+        setTimeout(stop, 3000)
+    }
+
 
     const onSetTitleHandler = () => {
         saveState<LocalStateType>("test", {x: "Hello!", y: "This is task number: ", z: 6});
@@ -54,7 +68,8 @@ function Junior() {
     }
 
     return (
-        <div className={s.Junior}>
+        load.loading ? <Preloader/>
+        : <div className={s.Junior}>
             <h1>Junior</h1>
             <hr/>
             <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
@@ -69,6 +84,7 @@ function Junior() {
             <hr/>
             <NewDate/>
             <hr/>
+            <ButtonNya onClick={changeLoad}>Start TimeOut</ButtonNya>
         </div>
     )
 };

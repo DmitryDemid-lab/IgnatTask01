@@ -14,9 +14,15 @@ export type CheckStateActionType = {
     minAge: number
 }
 
+const startState: Array<StateType> = [
+    {id: '1', name: 'Dmitry', age: 22},
+    {id: '2', name: 'Alex', age: 32},
+    {id: '3', name: 'Max', age: 12}
+]
+
 export type ActionType = SortStateActionType | CheckStateActionType
 
-export const hwReducer = (state: Array<StateType>, action: ActionType) => {
+export const hwReducer = (state: Array<StateType> = startState, action: ActionType) => {
     switch (action.type) {
         case "SORT": {
             let stateCopy = [...state]
@@ -32,7 +38,7 @@ export const hwReducer = (state: Array<StateType>, action: ActionType) => {
             return stateCopy.filter(p => p.age >= action.minAge)
         }
         default:
-            throw new Error("Can't find this type")
+            return state
     }
 };
 
