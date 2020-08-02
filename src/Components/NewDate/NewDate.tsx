@@ -27,14 +27,11 @@ function NewDate (props: NewDateType) {
 
     return (
         <div className={s.newDate}>
-            <div
-                className={s.TimeWithDate}
-                onMouseOver={()=>setShowMode(true)}
-                 onMouseOut={()=>setShowMode(false)}
-            >
+            <div className={s.TimeWithDate}>
                 {showMode && <div className={s.date}>{moment().format('MMMM DD YYYY')}</div>}
                 <div
-
+                    onMouseOver={()=>setShowMode(true)}
+                    onMouseOut={()=>setShowMode(false)}
                     className={s.time}
                 >{date}</div>
             </div>
