@@ -29,7 +29,6 @@ function Junior() {
     const onSetTitleHandler = () => {
         saveState<LocalStateType>("test", {x: "Hello!", y: "This is task number: ", z: 6});
     }
-
     const onGetTitleHandler = () => {
         const state: LocalStateType = restoreState<LocalStateType>("test", {x: "", y: "", z: 0});
         alert(Object.values(state).join(' '))
@@ -69,6 +68,7 @@ function Junior() {
             <Users/>
             <hr/>
             <NewDate/>
+            <hr/>
         </div>
     )
 };
