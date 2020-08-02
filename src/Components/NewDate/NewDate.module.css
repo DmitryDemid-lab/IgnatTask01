@@ -1,0 +1,22 @@
+.newDate {
+    box-sizing: border-box;
+}
+.time {
+    margin: 0 auto 15px auto;
+    width: 100px;
+    background-color: #305dff;
+    padding: 5px 10px 15px 10px;
+    font-size: 20px;
+    color: white;
+    border-radius: 15px;
+}
+
+.date {
+    margin: 0 auto;
+    width: 100px;
+    background-color: rgba(48, 93, 255, 0.36);
+    padding: 5px 10px 3px 10px;
+    font-size: 15px;
+    color: white;
+    border-radius: 20px;
+}
