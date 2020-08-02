@@ -1,4 +1,4 @@
-import {checkStateAC, hwReducer, sortStateAC, StateType} from "../../reducer/homeWorkReducer";
+import {checkStateAC, hwReducer, sortStateAC, StateType} from "../../redux/reducers/HomeWorkReducer/homeWorkReducer";
 import React, {useState} from "react";
 import ButtonNya from "../Input(task4)/ButtonNya/ButtonNya";
 
