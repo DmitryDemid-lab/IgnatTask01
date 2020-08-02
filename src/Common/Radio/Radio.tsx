@@ -15,8 +15,8 @@ function Radio(props: RadioType) {
 
     return (
         <>
-            {props.radioGroup.map(r => {
-                    return <div >
+            {props.radioGroup.map((r, i) => {
+                    return <div key={i}>
                         <label>
                             <input
                                 type={'radio'}
