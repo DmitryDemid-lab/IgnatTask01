@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import PreJunior from "./AppPages/PreJunior/PreJunior";
-import Junior from "./AppPages/Junior/Junior";
+import {Junior} from "./AppPages/Junior/Junior";
 import JuniorPlus from "./AppPages/Junior+/JuniorPlus";
 import {Route, Switch} from 'react-router-dom';
 import Layout from "./hoc/Layout/Layout";
