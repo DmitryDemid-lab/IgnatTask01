@@ -7,7 +7,7 @@ type RadioType = {
     onRadioChangeHandler: (currentItem: string) => void
 }
 
-function Radio(props: RadioType) {
+export const Radio = React.memo((props: RadioType) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         props.onRadioChangeHandler(e.currentTarget.value)
@@ -16,7 +16,7 @@ function Radio(props: RadioType) {
     return (
         <>
             {props.radioGroup.map((r, i) => {
-                    return <div key={i}>
+                    return <div key={i} className={s.Radio}>
                         <label>
                             <input
                                 type={'radio'}
@@ -32,6 +32,4 @@ function Radio(props: RadioType) {
         </>
 
     )
-};
-
-export default Radio;
+});

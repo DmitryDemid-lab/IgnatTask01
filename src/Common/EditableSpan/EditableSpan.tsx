@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import s from "./EditableSpan.module.css"
 import InputNya from "../../Components/Input(task4)/InputNya/InputNya";
 
 
 type EditableSpanPropsType = {
     title: string,
-    onChange: () => void,
+    onChange: (currentSpanValue: string) => void
 };
 
-function EditableSpan(props: EditableSpanPropsType) {
+export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
 
     const [editMode, setEditMode] = useState<boolean>(false);
 
@@ -20,14 +20,19 @@ function EditableSpan(props: EditableSpanPropsType) {
         setEditMode(false)
     };
 
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        props.onChange(e.currentTarget.value)
+    }
+
     return (
         <div>
             {editMode
                 ? <InputNya
                     onEnter={deactivateEditMode}
                     onBlur={deactivateEditMode}
-                    onChange={props.onChange}
                     autoFocus
+                    onChange={onChangeHandler}
+                    value={props.title}
                 />
                 : <span
                     className={s.EditableSpan}
@@ -38,6 +43,4 @@ function EditableSpan(props: EditableSpanPropsType) {
             }
         </div>
     )
-};
-
-export default EditableSpan;
+});

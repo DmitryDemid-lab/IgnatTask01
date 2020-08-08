@@ -1,16 +1,13 @@
 import React, {ChangeEvent, DetailedHTMLProps, OptionHTMLAttributes, SelectHTMLAttributes} from 'react';
 import s from "./Select.module.css"
 
-type SelectType =
-    DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
-    & DetailedHTMLProps<OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>
-    & {
+type SelectType = {
     optionsArray: Array<string | number>
     value: string | number
     onSelectChangeHandler: (value: string ) => void
 }
 
-const Select: React.FC<SelectType> = (props: SelectType) => {
+export const Select = React.memo((props: SelectType) => {
     const onChangeH = (e: ChangeEvent<HTMLSelectElement>) => {
         props.onSelectChangeHandler(e.currentTarget.value);
     }
@@ -20,6 +17,4 @@ const Select: React.FC<SelectType> = (props: SelectType) => {
             {props.optionsArray.map((op, i) => <option key={i}>{op}</option>)}
         </select>
     )
-};
-
-export default Select;
+});

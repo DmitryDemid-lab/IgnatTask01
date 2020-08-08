@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import s from './Junior.module.css'
-import EditableSpan from "../../Common/EditableSpan/EditableSpan";
+import {EditableSpan} from "../../Common/EditableSpan/EditableSpan";
 import ButtonNya from "../../Components/Input(task4)/ButtonNya/ButtonNya";
-import Select from "../../Common/Select/Select";
-import Radio from "../../Common/Radio/Radio";
+import {Select} from "../../Common/Select/Select";
+import {Radio} from "../../Common/Radio/Radio";
 import Users from "../../Components/Users/Users";
 import NewDate from "../../Components/NewDate/NewDate";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../redux/store";
 import {loadStateType, setLoading} from "../../redux/reducers/loadStateReducer/loadStateReducer";
 import Preloader from "../../Common/preloader/Preloader";
+import {Range} from "../../Common/Range/Range";
 
 type LocalStateType = {
     x: string
@@ -28,7 +29,7 @@ export function restoreState<T>(key: string, defaultState: T) {
     return defaultState;
 }
 
-function Junior() {
+export const Junior = React.memo(() => {
 
     const load = useSelector<AppRootStateType, loadStateType>(state => state.loadState)
     const dispatch = useDispatch()
@@ -39,7 +40,6 @@ function Junior() {
         setTimeout(stop, 3000)
     }
 
-
     const onSetTitleHandler = () => {
         saveState<LocalStateType>("test", {x: "Hello!", y: "This is task number: ", z: 6});
     }
@@ -49,30 +49,41 @@ function Junior() {
         console.log(state)
     }
 
-    const onChangeEditableSpanHandler = () => {
-        alert("Wow")
-    }
+    //Params for EditableSpan test
+    const [spanValue, setSpanValue] = useState('Hello')
+    const onChangeEditableSpanHandler = useCallback((currentSpanValue: string) => {setSpanValue(currentSpanValue)}, [])
+
+
 
     //Params for select test
-    const cities = ["Select city", "Minsk", "Moscow", "Kiev"]
-    const [selectedValue, setSelectedValue] = useState("Select city")
-    const onSelectChangeHandler = (value: string) => {
+    const cities = ["Range city", "Minsk", "Moscow", "Kiev"]
+    const [selectedValue, setSelectedValue] = useState("Range city")
+    const onSelectChangeHandler = useCallback((value: string) => {
         setSelectedValue(value)
-    }
+    }, [])
 
     //Params for Radio test
     const radioGroup = ["ManUnited", "Chelsea", "Arsenal", "Liverpool"];
     const [selectedRadio, setSelectedRadio] = useState("ManUnited")
-    const onRadioChangeHandler = (currentItem: string) => {
+    const onRadioChangeHandler = useCallback((currentItem: string) => {
         setSelectedRadio(currentItem)
-    }
+    }, [])
+
+    //Params for Range test
+    const minVal = 1
+    const maxVal = 10
+    const [rangeValue, setRangeValue] = useState(minVal)
+    const onRangeChange = useCallback((currentValue: number) => {
+        setRangeValue(currentValue)
+    }, [])
+    console.log(`VALUE IN LOCAL STATE ${rangeValue}`)
 
     return (
         load.loading ? <Preloader/>
         : <div className={s.Junior}>
             <h1>Junior</h1>
             <hr/>
-            <EditableSpan title={"Hello"} onChange={onChangeEditableSpanHandler}/>
+            <EditableSpan title={spanValue} onChange={onChangeEditableSpanHandler}/>
             <ButtonNya onClick={onSetTitleHandler}>Set title</ButtonNya>
             <ButtonNya onClick={onGetTitleHandler}>Get title</ButtonNya>
             <hr/>
@@ -85,8 +96,8 @@ function Junior() {
             <NewDate/>
             <hr/>
             <ButtonNya onClick={changeLoad}>Start TimeOut</ButtonNya>
+            <hr/>
+            <Range title={'Test'} maxVal={maxVal} minVal={minVal} onRangeChange={onRangeChange} value={rangeValue}/>
         </div>
     )
-};
-
-export default Junior;
+});
