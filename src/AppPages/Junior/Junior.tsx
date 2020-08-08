@@ -11,6 +11,7 @@ import {AppRootStateType} from "../../redux/store";
 import {loadStateType, setLoading} from "../../redux/reducers/loadStateReducer/loadStateReducer";
 import Preloader from "../../Common/preloader/Preloader";
 import {Range} from "../../Common/Range/Range";
+import {DoubleRange} from "../../Common/DoubleRange/DoubleRange";
 
 type LocalStateType = {
     x: string
@@ -56,8 +57,8 @@ export const Junior = React.memo(() => {
 
 
     //Params for select test
-    const cities = ["Range city", "Minsk", "Moscow", "Kiev"]
-    const [selectedValue, setSelectedValue] = useState("Range city")
+    const cities = ["DoubleRange city", "Minsk", "Moscow", "Kiev"]
+    const [selectedValue, setSelectedValue] = useState("DoubleRange city")
     const onSelectChangeHandler = useCallback((value: string) => {
         setSelectedValue(value)
     }, [])
@@ -70,13 +71,26 @@ export const Junior = React.memo(() => {
     }, [])
 
     //Params for Range test
-    const minVal = 1
+    const minVal = 0
     const maxVal = 10
+    const step = 2
     const [rangeValue, setRangeValue] = useState(minVal)
     const onRangeChange = useCallback((currentValue: number) => {
         setRangeValue(currentValue)
     }, [])
-    console.log(`VALUE IN LOCAL STATE ${rangeValue}`)
+
+    //Params for DoubleRange test
+    const minValDouble = 0
+    const maxValDouble = 50
+    const doubleStep = 2
+    const [upperValue, setUpperValue] = useState(maxVal)
+    const [lowerValue, setLowerValue] = useState(minVal)
+    const onLowerChange = useCallback((currentValue: number) => {
+        setLowerValue(currentValue)
+    }, [])
+    const onUpperChange = useCallback((currentValue: number) => {
+        setUpperValue(currentValue)
+    }, [])
 
     return (
         load.loading ? <Preloader/>
@@ -97,7 +111,18 @@ export const Junior = React.memo(() => {
             <hr/>
             <ButtonNya onClick={changeLoad}>Start TimeOut</ButtonNya>
             <hr/>
-            <Range title={'Test'} maxVal={maxVal} minVal={minVal} onRangeChange={onRangeChange} value={rangeValue}/>
+            <Range title={'Test'} maxVal={maxVal} minVal={minVal} onRangeChange={onRangeChange} value={rangeValue} step={step}/>
+            <br/>
+            <DoubleRange
+                step={doubleStep}
+                minVal={minValDouble}
+                maxVal={maxValDouble}
+                valueLower={lowerValue}
+                valueUpper={upperValue}
+                title={'TEST'}
+                onLowerChange={onLowerChange}
+                onUpperChange={onUpperChange}
+            />
         </div>
     )
 });
