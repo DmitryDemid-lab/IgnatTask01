@@ -16,16 +16,10 @@ export const DoubleRange = React.memo((props: RangeType) => {
 
     if (props.valueUpper < props.valueLower + 4){
         props.onLowerChange(props.valueUpper - 4)
-        if (props.valueLower == props.minVal){
-            props.onUpperChange(4)
-        }
     }
 
     if (props.valueLower > props.valueUpper - 4){
         props.onUpperChange(props.valueLower + 4)
-        if (props.valueUpper == props.maxVal){
-            props.onLowerChange(46)
-        }
     }
 
     const onLowerChange = (e: ChangeEvent<HTMLInputElement>) => {
