@@ -23,6 +23,7 @@ export const Radio = React.memo((props: RadioType) => {
                                 name={props.groupName}
                                 value={r}
                                 onChange={onChangeHandler}
+                                checked={true}
                             />
                             {r}
                         </label>

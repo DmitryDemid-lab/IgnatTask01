@@ -57,8 +57,8 @@ export const Junior = React.memo(() => {
 
 
     //Params for select test
-    const cities = ["DoubleRange city", "Minsk", "Moscow", "Kiev"]
-    const [selectedValue, setSelectedValue] = useState("DoubleRange city")
+    const cities = ["Choose city", "Minsk", "Moscow", "Kiev"]
+    const [selectedValue, setSelectedValue] = useState("Choose city")
     const onSelectChangeHandler = useCallback((value: string) => {
         setSelectedValue(value)
     }, [])
