@@ -7,6 +7,7 @@ type RangeType ={
     maxVal: number
     onRangeChange: (currentValue: number) => void
     value: number
+    step: number
 }
 
 export const Range = React.memo((props:RangeType) => {
@@ -23,6 +24,7 @@ export const Range = React.memo((props:RangeType) => {
                 max={props.maxVal}
                 onChange={onRangeChange}
                 value={props.value}
+                step={props.step}
             />
             <label>{props.title}</label>
         </div>
