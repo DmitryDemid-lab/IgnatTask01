@@ -8,6 +8,10 @@ import ButtonNya from "../../Components/Input(task4)/ButtonNya/ButtonNya";
 import {RequestsAPI} from "../../Api/api";
 import {log} from "util";
 
+type JuniorPlusType = {
+
+}
+
 export default function JuniorPlus() {
     const theme = useSelector<AppRootStateType>(state => state.theme.theme)
     return (
