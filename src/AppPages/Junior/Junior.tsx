@@ -54,8 +54,6 @@ export const Junior = React.memo(() => {
     const [spanValue, setSpanValue] = useState('Hello')
     const onChangeEditableSpanHandler = useCallback((currentSpanValue: string) => {setSpanValue(currentSpanValue)}, [])
 
-
-
     //Params for select test
     const cities = ["Choose city", "Minsk", "Moscow", "Kiev"]
     const [selectedValue, setSelectedValue] = useState("Choose city")

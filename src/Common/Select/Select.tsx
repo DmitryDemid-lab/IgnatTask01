@@ -3,8 +3,8 @@ import s from "./Select.module.css"
 
 type SelectType = {
     optionsArray: Array<string | number>
-    value: string | number
-    onSelectChangeHandler: (value: string ) => void
+    value: any
+    onSelectChangeHandler: (value: any ) => void
 }
 
 export const Select = React.memo((props: SelectType) => {

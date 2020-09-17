@@ -1,5 +1,3 @@
-import React from "react";
-
 const SET_LOADING = "SET_LOADING"
 
 export type loadStateType = {

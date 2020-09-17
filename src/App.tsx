@@ -12,14 +12,16 @@ import {store} from "./redux/store";
 
 function App() {
     return (
-        <Layout>
-            <Switch>
-                <Route path='/PreJunior' component={PreJunior}/>
-                <Provider store={store}><Route path='/Junior' component={Junior}/></Provider>
-                <Route path='/JuniorPlus' component={JuniorPlus}/>
-                <Route path='/' component={HomeScreens}/>
-            </Switch>
-        </Layout>
+        <Provider store={store}>
+            <Layout>
+                <Switch>
+                    <Route path='/PreJunior' component={PreJunior}/>
+                    <Route path='/Junior' component={Junior}/>
+                    <Route path='/JuniorPlus' component={JuniorPlus}/>
+                    <Route path='/' component={HomeScreens}/>
+                </Switch>
+            </Layout>
+        </Provider>
     );
 }
 
