@@ -1,4 +1,16 @@
 .JuniorPlus {
     text-align: center;
     color: #3cb2c7;
+    height: 100%;
+}
+
+.bgLight {
+    background-color: #fff;
+}
+.bgDark {
+    background-color: #3d3d3d;
+}
+.bgColor {
+    background-color: #149a00;
+    color: red;
 }
